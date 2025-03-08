@@ -1,0 +1,8 @@
+{
+  "arbitrum-sepolia": {
+    "OmniNadsConsumer": {
+      "address": "0xf44d59B1Eb6852FA9Cf4a7bC9a3211BADF0B66cf",
+      "startBlock": 130272348
+    }
+  }
+}

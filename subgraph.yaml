@@ -1,0 +1,59 @@
+specVersion: 1.2.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: OmniNadsConsumer
+    network: arbitrum-sepolia
+    source:
+      address: "0xf44d59B1Eb6852FA9Cf4a7bC9a3211BADF0B66cf"
+      abi: OmniNadsConsumer
+      startBlock: 130272348
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.9
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - BaseURISet
+        - EnforcedOptionSet
+        - MsgInspectorSet
+        - ONFTReceived
+        - ONFTSent
+        - OwnershipTransferred
+        - PeerSet
+        - PreCrimeSet
+        - TokenEvolved
+        - Transfer
+      abis:
+        - name: OmniNadsConsumer
+          file: ./abis/OmniNadsConsumer.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: BaseURISet(string)
+          handler: handleBaseURISet
+        - event: EnforcedOptionSet((uint32,uint16,bytes)[])
+          handler: handleEnforcedOptionSet
+        - event: MsgInspectorSet(address)
+          handler: handleMsgInspectorSet
+        - event: ONFTReceived(indexed bytes32,uint32,indexed address,uint256)
+          handler: handleONFTReceived
+        - event: ONFTSent(indexed bytes32,uint32,indexed address,uint256)
+          handler: handleONFTSent
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: PeerSet(uint32,bytes32)
+          handler: handlePeerSet
+        - event: PreCrimeSet(address)
+          handler: handlePreCrimeSet
+        - event: TokenEvolved(indexed uint256,indexed uint8)
+          handler: handleTokenEvolved
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/omni-nads-consumer.ts
