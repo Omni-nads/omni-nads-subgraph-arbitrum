@@ -110,12 +110,12 @@ type Transfer @entity(immutable: true) {
 }
 
 type Token @entity {
-  id: ID!              
+  id: ID!
   tokenId: BigInt!
   owner: Bytes!
-  contract: Bytes!
   tokenURI: String
-  tokenState: String  
+  tokenState: String
+  contract: Bytes!
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
