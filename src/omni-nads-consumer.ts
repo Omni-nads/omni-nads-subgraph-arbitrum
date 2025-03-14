@@ -51,7 +51,7 @@ function getOrCreateGlobal(): Global {
   let global = Global.load("global")
   if (!global) {
     global = new Global("global")
-    global.baseURI = "https://arweave.net/XI2afr4wHl_M78ovIGYzCPvU0O8126DndmZ-L3VjrMY/arbitrum/"
+    global.baseURI = "https://arweave.net/KTNUM70p_uS38bAUzrwmBFiMAIrXoiBQFzIGTRfDMu4/arbitrum/"
     global.tokenIds = []
     global.save()
   }
@@ -92,7 +92,7 @@ function getTokenURI(token: Token): string {
   let global = Global.load("global")
   let baseURI = (global && global.baseURI) 
     ? global.baseURI! 
-    : "https://arweave.net/XI2afr4wHl_M78ovIGYzCPvU0O8126DndmZ-L3VjrMY/arbitrum/"
+    : "https://arweave.net/KTNUM70p_uS38bAUzrwmBFiMAIrXoiBQFzIGTRfDMu4/arbitrum/"
 
   let state = token.tokenState ? token.tokenState! : "1"
   return baseURI + state + "/omninad.json"
